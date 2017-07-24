@@ -14,7 +14,8 @@ int main(int argc, char **argv)
 		type = "other";
 	
 	//S_IRUSR read permission, owner
-	if((stat.st_mode && S_IRUSR))	//check read access
+	//notice that we use & not &&
+	if((stat.st_mode & S_IRUSR))	//check read access
 		readok = "yes";
 	else 
 		readok = "false";
